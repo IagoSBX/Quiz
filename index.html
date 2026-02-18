@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz The I's</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fotos decorativas -->
+    <img src="" class="decor-foto top-left">
+    <img src="img/pracadosol.jpg" class="decor-foto top-right">
+    <img src="img/quartoindio.jpg" class="decor-foto bottom-left">
+    <img src="img/quarto.jpeg" class="decor-foto bottom-right">
+    <img src="img/villalobos1.jpeg" class="decor-foto bottom-right">
+
+
+    <div class="container">
+        <h1>Quiz The I's</h1>
+        <img src="img/bailedeprimavera.jpg" alt="Foto do Quiz">
+
+        <p>Escolha seu nome para jogar:</p>
+        <div id="opcoesNome">
+            <button onclick="escolherNome('Bela')">Bela</button>
+            <button onclick="escolherNome('Iago')">Iago</button>
+        </div>
+    </div>
+
+    <script>
+        function escolherNome(nome) {
+            localStorage.setItem("usuario", nome);
+            localStorage.setItem("pontuacao", 0);
+            localStorage.setItem("perguntaAtual", 0);
+            localStorage.setItem("respostasUsuario", JSON.stringify({}));
+            window.location.href = "quiz.html";
+        }
+    </script>
+</body>
+</html>

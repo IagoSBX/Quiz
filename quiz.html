@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Foto da pergunta -->
+        <img src="" alt="Foto do Quiz" id="fotoPergunta">
+
+        <!-- Texto da pergunta -->
+        <h2 id="perguntaTexto">Carregando pergunta...</h2>
+
+        <!-- Botões das alternativas -->
+        <div id="botoesOpcoes"></div>
+
+        <!-- Navegação -->
+        <div class="nav-buttons">
+            <button id="btnAnterior" onclick="anteriorPergunta()">Anterior</button>
+            <button id="btnProximo" onclick="proximaPergunta()">Próxima</button>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

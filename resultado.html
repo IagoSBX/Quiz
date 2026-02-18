@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Parabéns!</h1>
+        <h2 id="pontuacaoFinal"></h2>
+
+        <!-- Botões -->
+        <button onclick="reiniciar()">Jogar de novo</button>
+        <button onclick="verTodasPerguntas()">Ver todas as perguntas</button>
+        <button onclick="avancarTextoFinal()">Avançar para texto final</button>
+    </div>
+
+    <script>
+        const nome = localStorage.getItem("usuario") || "Jogador";
+        const respostasUsuario = JSON.parse(localStorage.getItem("respostasUsuario")) || {};
+        const perguntas = [
+          {"id":1,"resposta_certa":"B"},
+          {"id":2,"resposta_certa":"A"},
+          {"id":3,"resposta_certa":"A"},
+          {"id":4,"resposta_certa":"D"},
+          {"id":5,"resposta_certa":"A"},
+          {"id":6,"resposta_certa":"A"},
+          {"id":7,"resposta_certa":"B"},
+          {"id":8,"resposta_certa":"A"}
+          // adicione todas as perguntas aqui
+        ];
+
+        // Calcula pontuação
+        let pontuacao = 0;
+        for(let i=0;i<perguntas.length;i++){
+            const p = perguntas[i];
+            if(respostasUsuario[p.id] === p.resposta_certa) pontuacao++;
+        }
+
+        document.getElementById("pontuacaoFinal").innerText = `${nome}, sua pontuação foi: ${pontuacao} de 8`;
+
+        // Funções dos botões
+        function reiniciar() {
+            localStorage.setItem("pontuacao", 0);
+            localStorage.setItem("perguntaAtual", 0);
+            localStorage.setItem("respostasUsuario", JSON.stringify({}));
+            window.location.href = "index.html";
+        }
+
+        function verTodasPerguntas() {
+            localStorage.setItem("perguntaAtual", 0);
+            window.location.href = "quiz.html";
+        }
+
+        function avancarTextoFinal() {
+            window.location.href = "texto.html"; // redireciona para a página de texto final
+        }
+    </script>
+</body>
+</html>
