@@ -36,7 +36,7 @@ let perguntas = [
       "opcao_b": "18/06",
       "opcao_c": "14/06",
       "opcao_d": "20/06",
-      "resposta_certa": "D",
+      "resposta_certa": "C",
       "foto": "img/quarto.jpeg"
     },
     {"id": 5,
