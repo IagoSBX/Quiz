@@ -71,7 +71,15 @@ let perguntas = [
     "opcao_c": "Festa de aniversario Manoel",
     "opcao_d": "NDA",
     "resposta_certa": "A",
-    "foto": "img/chroma.jpeg"}
+    "foto": "img/chroma.jpeg"},
+    {"id": 9,
+      "texto": "Se nao sou eu quem vai fazer voce feliz?",
+      "opcao_a": "GUERRA!",
+      "opcao_b": "Voce!",
+      "opcao_c": "Nós",
+      "opcao_d": "NDA",
+      "resposta_certa": "A",
+      "foto": "img/livrochorao.jpg"}
 
   ];
   

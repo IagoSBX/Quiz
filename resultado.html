@@ -27,7 +27,9 @@
           {"id":5,"resposta_certa":"A"},
           {"id":6,"resposta_certa":"A"},
           {"id":7,"resposta_certa":"B"},
-          {"id":8,"resposta_certa":"A"}
+          {"id":8,"resposta_certa":"A"},
+          {"id":9,"resposta_certa":"A"}
+
           // adicione todas as perguntas aqui
         ];
 
@@ -38,7 +40,7 @@
             if(respostasUsuario[p.id] === p.resposta_certa) pontuacao++;
         }
 
-        document.getElementById("pontuacaoFinal").innerText = `${nome}, sua pontuação foi: ${pontuacao} de 8`;
+        document.getElementById("pontuacaoFinal").innerText = `${nome}, sua pontuação foi: ${pontuacao} de 9`;
 
         // Funções dos botões
         function reiniciar() {
