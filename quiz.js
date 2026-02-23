@@ -79,7 +79,16 @@ let perguntas = [
       "opcao_c": "Nós",
       "opcao_d": "NDA",
       "resposta_certa": "A",
-      "foto": "img/livrochorao.jpg"}
+      "foto": "img/livrochorao.jpg"},
+      {"id": 10,
+        "texto": "Qual comida eu nunca recusaria ?",
+        "opcao_a": "Baiao de dois!",
+        "opcao_b": "Arroz, bife e feijao",
+        "opcao_c": "Sushi",
+        "opcao_d": "Sorvete",
+        "resposta_certa": "B",
+        "foto": "img/cavepool.jpg"},
+
 
   ];
   
