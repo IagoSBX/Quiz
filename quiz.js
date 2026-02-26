@@ -88,6 +88,14 @@ let perguntas = [
         "opcao_d": "Sorvete",
         "resposta_certa": "B",
         "foto": "img/cavepool.jpg"},
+        {"id": 11,
+          "texto": "Nosso primeiro jantar fora only nos dois ?",
+          "opcao_a": "Japa no butanta",
+          "opcao_b": "The Square",
+          "opcao_c": "Mexicano",
+          "opcao_d": "Abud",
+          "resposta_certa": "B",
+          "foto": "img/primeirobeijo.jpeg"}
 
 
   ];

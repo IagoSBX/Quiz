@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>Resultado Quiz</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .acerto { color: green; font-weight: bold; }
+        .erro { color: red; font-weight: bold; }
+        .lista-resultados { text-align: left; margin-top: 20px; }
+        hr { margin: 20px 0; }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Parabéns!</h1>
         <h2 id="pontuacaoFinal"></h2>
+
+        <div class="lista-resultados" id="detalhesResultado"></div>
 
         <!-- Botões -->
         <button onclick="reiniciar()">Jogar de novo</button>
@@ -19,32 +28,48 @@
     <script>
         const nome = localStorage.getItem("usuario") || "Jogador";
         const respostasUsuario = JSON.parse(localStorage.getItem("respostasUsuario")) || {};
-        const perguntas = [
-          {"id":1,"resposta_certa":"B"},
-          {"id":2,"resposta_certa":"A"},
-          {"id":3,"resposta_certa":"A"},
-          {"id":4,"resposta_certa":"C"},
-          {"id":5,"resposta_certa":"A"},
-          {"id":6,"resposta_certa":"A"},
-          {"id":7,"resposta_certa":"B"},
-          {"id":8,"resposta_certa":"A"},
-          {"id":9,"resposta_certa":"A"},
-          {"id":10,"resposta_certa":"B"}
-        
 
-          // adicione todas as perguntas aqui
+        const perguntas = [
+            {id:1, resposta_certa:"B"},
+            {id:2, resposta_certa:"A"},
+            {id:3, resposta_certa:"A"},
+            {id:4, resposta_certa:"C"},
+            {id:5, resposta_certa:"A"},
+            {id:6, resposta_certa:"A"},
+            {id:7, resposta_certa:"B"},
+            {id:8, resposta_certa:"A"},
+            {id:9, resposta_certa:"A"},
+            {id:10, resposta_certa:"B"},
+            {id:11, resposta_certa:"B"}
         ];
 
-        // Calcula pontuação
         let pontuacao = 0;
-        for(let i=0;i<perguntas.length;i++){
+        let listaAcertos = "";
+        let listaErros = "";
+
+        for(let i = 0; i < perguntas.length; i++){
             const p = perguntas[i];
-            if(respostasUsuario[p.id] === p.resposta_certa) pontuacao++;
+            const respostaUsuarioPergunta = respostasUsuario[p.id];
+
+            if(respostaUsuarioPergunta === p.resposta_certa){
+                pontuacao++;
+                listaAcertos += `<p class="acerto">✔ Pergunta ${p.id} - Você acertou</p>`;
+            } else {
+                listaErros += `<p class="erro">❌ Pergunta ${p.id} - Você marcou ${respostaUsuarioPergunta || "Nada"} | Correta: ${p.resposta_certa}</p>`;
+            }
         }
 
-        document.getElementById("pontuacaoFinal").innerText = `${nome}(Minha pessoa favorita da terra), sua pontuação foi: ${pontuacao} de 10`;
+        document.getElementById("pontuacaoFinal").innerText =
+            `${nome} (Minha pessoa favorita da terra 💖), sua pontuação foi: ${pontuacao} de ${perguntas.length}`;
 
-        // Funções dos botões
+        document.getElementById("detalhesResultado").innerHTML = `
+            <hr>
+            <h3>Acertos:</h3>
+            ${listaAcertos || "Nenhum 😅"}
+            <h3>Erros:</h3>
+            ${listaErros || "Nenhum 😍 Perfeito!"}
+        `;
+
         function reiniciar() {
             localStorage.setItem("pontuacao", 0);
             localStorage.setItem("perguntaAtual", 0);
@@ -58,7 +83,7 @@
         }
 
         function avancarTextoFinal() {
-            window.location.href = "texto.html"; // redireciona para a página de texto final
+            window.location.href = "texto.html";
         }
     </script>
 </body>
